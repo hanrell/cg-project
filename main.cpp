@@ -71,7 +71,7 @@ int main()
 
     // load models
     // -----------
-    Model ourModel("resources/models/maze/maze_texture.obj");
+    Model ourModel("resources/models/maze/maze.obj");
 
     
     // draw in wireframe
@@ -107,8 +107,9 @@ int main()
 
         // render the loaded model
         glm::mat4 model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f)); // translate it down so it's at the center of the scene
-        model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));	// it's a bit too big for our scene, so scale it down
+        model = glm::translate(model, glm::vec3(100.0f, -12.0f, 2.9f)); // translate it down so it's at the center of the scene y5
+        //model = glm::scale(model, glm::vec3(0.8f, 0.8f, 0.8f));	// it's a bit too big for our scene, so scale it down
+        model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));	// it's a bit too big for our scene, so scale it down
         ourShader.setMat4("model", model);
         ourModel.Draw(ourShader);
 

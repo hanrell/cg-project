@@ -15,11 +15,11 @@ enum Camera_Movement {
 };
 
 // Default camera values
-const float YAW         = -180.0f;
-const float PITCH       =  -14.0f;
-const float SPEED       =  10.0f;
-const float SENSITIVITY =  0.15f;
-const float ZOOM        =  45.0f;
+const float YAW         =  0.0f;
+const float PITCH       =  0.0f;
+const float SPEED       =  8.0f;
+const float SENSITIVITY =  0.1f;
+const float ZOOM        =  50.0f; //45
 
 
 // An abstract camera class that processes input and calculates the corresponding Euler Angles, Vectors and Matrices for use in OpenGL
@@ -40,7 +40,7 @@ public:
     float Zoom;
 
     // Constructor with vectors
-    Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = YAW, float pitch = PITCH) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM)
+    Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 up = glm::vec3(0.0f, 0.1f, 0.0f), float yaw = YAW, float pitch = PITCH) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM)
     {
         Position = position;
         WorldUp = up;
@@ -82,10 +82,10 @@ public:
     void ProcessMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch = true)
     {
         xoffset *= MouseSensitivity;
-        yoffset *= MouseSensitivity;
+        //yoffset *= MouseSensitivity;
 
         Yaw   += xoffset;
-        Pitch += yoffset;
+        //Pitch += yoffset;
 
         // Make sure that when pitch is out of bounds, screen doesn't get flipped
         if (constrainPitch)
