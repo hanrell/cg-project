@@ -15,8 +15,8 @@ enum Camera_Movement {
 };
 
 // Default camera values
-const float YAW         =  0.0f;
-const float PITCH       =  0.0f;
+const float YAW         =  1.0f;
+const float PITCH       =  1.0f;
 const float SPEED       =  8.0f;
 const float SENSITIVITY =  0.1f;
 const float ZOOM        =  50.0f; //45
@@ -68,7 +68,7 @@ public:
     void ProcessKeyboard(Camera_Movement direction, float deltaTime)
     {
         float velocity = MovementSpeed * deltaTime;
-        if (direction == FORWARD)
+	if (direction == FORWARD)
             Position += Front * velocity;
         if (direction == BACKWARD)
             Position -= Front * velocity;
@@ -76,16 +76,19 @@ public:
             Position -= Right * velocity;
         if (direction == RIGHT)
             Position += Right * velocity;
+	
+	//Keeps the camera on the ground
+	Position.y = 0.5f;
     }
 
     // Processes input received from a mouse input system. Expects the offset value in both the x and y direction.
     void ProcessMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch = true)
     {
         xoffset *= MouseSensitivity;
-        //yoffset *= MouseSensitivity;
+        yoffset *= MouseSensitivity;
 
         Yaw   += xoffset;
-        //Pitch += yoffset;
+        Pitch += yoffset;
 
         // Make sure that when pitch is out of bounds, screen doesn't get flipped
         if (constrainPitch)
