@@ -10,7 +10,7 @@ Ke 0.0 0.0 0.0
 Ni 1.450000
 d 1.000000
 illum 2
-map_Bump -bm 1.900000 brick_normal.png
+map_Bump -bm 4.900001 brick_normal.png
 map_Kd brick_color.png
 map_Ks brick_spec.png
 
@@ -23,6 +23,7 @@ Ke 0.0 0.0 0.0
 Ni 1.450000
 d 1.000000
 illum 2
+map_Bump -bm 1.500000 floor_normal.png
 map_Kd floor_color.png
 map_Ks floor_spec.png
 
@@ -46,5 +47,6 @@ Ke 0.0 0.0 0.0
 Ni 1.450000
 d 1.000000
 illum 2
+map_Bump -bm 1.400000 insideWall_normal.png
 map_Kd insideWall_color.png
 map_Ks insideWall_spec.png
