@@ -78,7 +78,7 @@ public:
             Position += Right * velocity;
 	
 	//Keeps the camera on the ground
-	//Position.y = 0.5f;
+	Position.y = 0.5f;
     }
 
     // Processes input received from a mouse input system. Expects the offset value in both the x and y direction.
