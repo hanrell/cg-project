@@ -50,6 +50,6 @@ void main()
     diffuse  *= intensity;
     specular *= intensity;
 
-    vec3 result = ambient + diffuse + specular;
+    vec3 result = ambient + (diffuse + specular);
     FragColor = vec4(result, 1.0);
 } 

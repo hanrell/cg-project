@@ -6,7 +6,7 @@
 
 #include <vector>
 
-// Defines several possible options for camera movement. Used as abstraction to stay away from window-system specific input methods
+// Defines several possible options for camera movement.
 enum Camera_Movement {
     FORWARD,
     BACKWARD,
@@ -17,12 +17,12 @@ enum Camera_Movement {
 // Default camera values
 const float YAW         =  1.0f;
 const float PITCH       =  1.0f;
-const float SPEED       =  20.0f;
+const float SPEED       =  8.0f;
 const float SENSITIVITY =  0.1f;
 const float ZOOM        =  50.0f; //45
 
 
-// An abstract camera class that processes input and calculates the corresponding Euler Angles, Vectors and Matrices for use in OpenGL
+// An abstract camera class 
 class Camera
 {
 public:
@@ -64,7 +64,7 @@ public:
         return glm::lookAt(Position, Position + Front, Up);
     }
 
-    // Processes input received from any keyboard-like input system. Accepts input parameter in the form of camera defined ENUM (to abstract it from windowing systems)
+    // Processes input received from any keyboard-like input system.
     void ProcessKeyboard(Camera_Movement direction, float deltaTime)
     {
         float velocity = MovementSpeed * deltaTime;
@@ -81,7 +81,7 @@ public:
 	Position.y = 0.5f;
     }
 
-    // Processes input received from a mouse input system. Expects the offset value in both the x and y direction.
+    // Processes input received from a mouse input system.
     void ProcessMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch = true)
     {
         xoffset *= MouseSensitivity;
@@ -103,17 +103,6 @@ public:
         updateCameraVectors();
     }
 
-    // Processes input received from a mouse scroll-wheel event. Only requires input on the vertical wheel-axis
-    void ProcessMouseScroll(float yoffset)
-    {
-        if (Zoom >= 1.0f && Zoom <= 45.0f)
-            Zoom -= yoffset;
-        if (Zoom <= 1.0f)
-            Zoom = 1.0f;
-        if (Zoom >= 45.0f)
-            Zoom = 45.0f;
-    }
-
 private:
     // Calculates the front vector from the Camera's (updated) Euler Angles
     void updateCameraVectors()
@@ -125,7 +114,7 @@ private:
         front.z = sin(glm::radians(Yaw)) * cos(glm::radians(Pitch));
         Front = glm::normalize(front);
         // Also re-calculate the Right and Up vector
-        Right = glm::normalize(glm::cross(Front, WorldUp));  // Normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
+        Right = glm::normalize(glm::cross(Front, WorldUp));  // Normalize the vectors
         Up    = glm::normalize(glm::cross(Right, Front));
     }
 };
