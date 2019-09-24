@@ -180,7 +180,7 @@ int main()
         lightingShader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
 	
 	// material properties
-        lightingShader.setFloat("material.shininess", 10.0f);
+        lightingShader.setFloat("material.shininess", 15.0f);
 	
         // view/projection transformations
 	glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
