@@ -1,8 +1,8 @@
-# Blender MTL File: 'maze2.blend'
+# Blender MTL File: 'maze_final.blend'
 # Material Count: 4
 
-newmtl Material.002
-Ns 225.000000
+newmtl brick
+Ns 70.560016
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
 Ks 0.500000 0.500000 0.500000
@@ -10,20 +10,24 @@ Ke 0.0 0.0 0.0
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd brick512p.png
+map_Bump -bm 4.900001 brick_normal.png
+map_Kd brick_color.png
+map_Ks brick_spec.png
 
-newmtl Material.003
-Ns 225.000000
+newmtl floor
+Ns 514.877367
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
+Ks 1.000000 1.000000 1.000000
 Ke 0.0 0.0 0.0
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd grass-texture-1248350_512p.png
+map_Bump -bm 1.500000 floor_normal.png
+map_Kd floor_color.png
+map_Ks floor_spec.png
 
-newmtl Material.004
+newmtl grass
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -32,10 +36,10 @@ Ke 0.0 0.0 0.0
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd floor_texture4_1300x1300.png
+map_Kd grass_color.png
 
-newmtl Material.005
-Ns 225.000000
+newmtl insideWall
+Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
 Ks 0.500000 0.500000 0.500000
@@ -43,4 +47,6 @@ Ke 0.0 0.0 0.0
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd inside_wall2.png
+map_Bump -bm 1.400000 insideWall_normal.png
+map_Kd insideWall_color.png
+map_Ks insideWall_spec.png
